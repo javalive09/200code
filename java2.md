@@ -1,5 +1,7 @@
 # java2
 
+
+
 ## 多线程
 
 ### 线程和进程的关系
@@ -12,11 +14,11 @@
 
 ### 生命周期
 
-![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/threadlife.jpg)
+![](/images/threadlife.jpg)
 
 ### 运行流程
 
-![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/threadlogic.jpeg)
+![](/images/threadlogic.jpeg)
 
 ### 控制
 
@@ -155,7 +157,7 @@ public class DaemonTest {
 
 ### 线程本地变量ThreadLocal
 
-将多线程公共变量，变成线程私有变量 如: Looper 中prepare方法 new了一个looper，并将Looper变成了线程本地变量 set\(\) get\(\) ![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/threadlocal.png)
+将多线程公共变量，变成线程私有变量 如: Looper 中prepare方法 new了一个looper，并将Looper变成了线程本地变量 set\(\) get\(\) ![](/images/threadlocal.png)
 
 ## IO流
 
@@ -236,13 +238,13 @@ static Entry <K,V> implementsMap.Entry<K,V>{
 }
 ```
 
-默认数组长度为16 默认负载因子0.75 \(可在初始化时显式指定\) 当size &gt; 12\(16 \_0.75\) 扩容，扩容到容量的2倍（16\_2） put元素时，会先对比hash值和equals内容。判断键值是否相等。 可以用来做统计文字出现次数的容器 ![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/hashmap.jpg)
+默认数组长度为16 默认负载因子0.75 \(可在初始化时显式指定\) 当size &gt; 12\(16  _0.75\) 扩容，扩容到容量的2倍（16_2） put元素时，会先对比hash值和equals内容。判断键值是否相等。 可以用来做统计文字出现次数的容器 ![](/images/hashmap.jpg)
 
 #### concurrentHashmap
 
 segments put时候，由于锁分段技术 多个锁保证 put的效率 get时候，由于value用volatile修饰，是透明的，可以完全无锁 保证效率
 
-![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/currentHashMap.png)
+![](/images/currentHashMap.png)
 
 #### TreeMap
 
