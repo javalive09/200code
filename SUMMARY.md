@@ -20,4 +20,5 @@
 * [Protocol Buffers分享](protocol-buffers-fen-xiang.md)
 * [A successful Git branching model\(译\)](a-successful-git-branching-model-yi.md)
 * [MacOS下用移动硬盘下载编译Android源码](macos-xia-yong-yi-dong-ying-pan-xia-zai-bian-yi-android-yuan-ma.md)
+* [Ubunut16.04下载/编译/调试Android源码](ubunut16.04-xia-zai-bian-yi-tiao-shi-android-yuan-ma.md)
 
