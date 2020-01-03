@@ -1,6 +1,4 @@
-# java1
-
-
+# java初
 
 ## 基本类型
 
@@ -520,7 +518,7 @@ peek：查询队列第一个元素，当队列为空时 不抛出异常 只返�
 
 ### 结构
 
-Throwable \|**\_**Error \|**\_**Exception **\_\_**\| **RuntimeException \_\_**\|_\_\__ other（checkException）
+Throwable \|**\_**Error \|**\_**Exception **\_\_**\| **RuntimeException \_\_**\|_\_\_\_ other（checkException）
 
 > 如何获取及保存exception log 使用UncaughtExceptionHandler来捕获unchecked异常保存到SDcard，到一定大小后发送，然后重置。
 
