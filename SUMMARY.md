@@ -5,4 +5,5 @@
 * [java2](java2.md)
 * [Java3](java3.md)
 * [网络](wang-luo.md)
+* [设计模式](she-ji-mo-shi.md)
 
