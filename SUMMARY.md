@@ -1,9 +1,7 @@
 # Table of contents
 
 * [目录](README.md)
-* [java初](java-chu/README.md)
-  * [基本类型](java-chu/untitled/README.md)
-    * [数据类型](java-chu/untitled/shu-ju-lei-xing.md)
+* [java初](java-chu.md)
 * [java2](java2.md)
 * [Java3](java3.md)
 * [网络](wang-luo.md)
