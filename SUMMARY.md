@@ -12,4 +12,5 @@
 * [加密](jia-mi.md)
 * [命令行](untitled.md)
 * [ADB调试](adb-tiao-shi.md)
+* [性能优化](xing-neng-you-hua.md)
 
