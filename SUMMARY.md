@@ -18,4 +18,5 @@
 * [GIT分享](git-fen-xiang.md)
 * [GIT命令](git-ming-ling.md)
 * [Protocol Buffers分享](protocol-buffers-fen-xiang.md)
+* [A successful Git branching model\(译\)](a-successful-git-branching-model-yi.md)
 
