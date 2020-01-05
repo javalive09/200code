@@ -12,11 +12,11 @@
 
 ### 生命周期
 
-![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/threadlife.jpg)
+![](.gitbook/assets/threadlife.jpg)
 
 ### 运行流程
 
-![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/threadlogic.jpeg)
+![](.gitbook/assets/threadlogic.jpeg)
 
 ### 控制
 
@@ -157,6 +157,8 @@ public class DaemonTest {
 
 将多线程公共变量，变成线程私有变量 如: Looper 中prepare方法 new了一个looper，并将Looper变成了线程本地变量 set\(\) get\(\) ![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/threadlocal.png)
 
+![](.gitbook/assets/threadlocal.png)
+
 ## IO流
 
 缓冲流速度快的原因： 不用每次都频繁的和硬件设备（扇区）进行读写。和硬件设备读写最影响速度
@@ -242,7 +244,7 @@ static Entry <K,V> implementsMap.Entry<K,V>{
 
 segments put时候，由于锁分段技术 多个锁保证 put的效率 get时候，由于value用volatile修饰，是透明的，可以完全无锁 保证效率
 
-![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/currentHashMap.png)
+![](.gitbook/assets/currenthashmap.png)
 
 #### TreeMap
 
