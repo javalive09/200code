@@ -1,7 +1,5 @@
 # AndroidV
 
-
-
 ## view
 
 ### animation
@@ -724,6 +722,8 @@ canvas.drawText\(String text, float x, float y, Paint paint\) y 参数的意义�
 
 ### 像素的结构
 
+![](.gitbook/assets/pixel.jpg)
+
 颜色（一个像素用一个int表示，32位真彩色） ![](/images/pixel.jpg) alpha通道：透明度，0~255 共256级透明度 一张图片所占内存 = wide  _hight_  4 byte
 
 ### canvas如何画出缩放的bitmap
@@ -922,7 +922,9 @@ public void setScrollY(int value) {
 }
 ```
 
-scroll方法针对的是view中的内容。 如view.scrollTo\(50,0\); 表示的是针对内容的（0，0）坐标view滚动了50个像素。 展现的是，内容向左边移动了50个像素。 ![](/images/scroll.png)
+scroll方法针对的是view中的内容。 如view.scrollTo\(50,0\); 表示的是针对内容的（0，0）坐标view滚动了50个像素。 展现的是，内容向左边移动了50个像素。 
+
+![](.gitbook/assets/scroll.png)
 
 ### LayoutInflater 的inflate\(int resource, ViewGroup root, boolean attachToRoot\)方法研究
 
@@ -1236,6 +1238,8 @@ pw.showAtLocation(this, Gravity.NO_GRAVITY, 0, statusBarHeight);
 
 ## 设备的适配
 
+![](.gitbook/assets/fitres.jpg)
+
 [官方文档](https://developer.android.google.cn/guide/practices/screens_support.html?hl=zh-cn) ![](/images/fitres.jpeg)
 
 ### 一套代码适配不同屏幕设备。
@@ -1431,7 +1435,7 @@ public class DensityUtil {
 
 ### 屏幕刷新频率
 
-即 Refresh Rate 或 Scanning Frequency，单位赫兹/Hz，是指设备刷新屏幕的频率，该值对于特定的设备来说是个常量，如 60hz。 对于一个特定的设备，帧率和刷新频率没有必然的大小关系。 ![](/images/screen_refresh.jpg)
+即 Refresh Rate 或 Scanning Frequency，单位赫兹/Hz，是指设备刷新屏幕的频率，该值对于特定的设备来说是个常量，如 60hz。 对于一个特定的设备，帧率和刷新频率没有必然的大小关系。 
 
 ### VSync
 
@@ -1441,7 +1445,9 @@ public class DensityUtil {
 
 ### 单缓存
 
-CPU/GPU 向 Buffer 中生成图像，屏幕从 Buffer 中取图像、刷新后显示。这是一个典型的生产者——消费者模型。 理想的情况是帧率和刷新频率相等，每绘制一帧，屏幕显示一帧。而实际情况是，二者之间没有必然的大小关系，如果没有锁来控制同步，很容易出现问题。例如，当帧率大于刷新频率，当屏幕还没有刷新第 n-1 帧的时候，GPU 已经在生成第 n 帧了，从上往下开始覆盖第 n-1 帧的数据，当屏幕开始刷新第 n-1 帧的时候，Buffer 中的数据上半部分是第 n 帧数据，而下半部分是第 n-1 帧的数据，显示出来的图像就会出现上半部分和下半部分明显偏差的现象，我们称之为 “tearing” ![](/images/one_buffer.jpg)
+CPU/GPU 向 Buffer 中生成图像，屏幕从 Buffer 中取图像、刷新后显示。这是一个典型的生产者——消费者模型。 理想的情况是帧率和刷新频率相等，每绘制一帧，屏幕显示一帧。而实际情况是，二者之间没有必然的大小关系，如果没有锁来控制同步，很容易出现问题。例如，当帧率大于刷新频率，当屏幕还没有刷新第 n-1 帧的时候，GPU 已经在生成第 n 帧了，从上往下开始覆盖第 n-1 帧的数据，当屏幕开始刷新第 n-1 帧的时候，Buffer 中的数据上半部分是第 n 帧数据，而下半部分是第 n-1 帧的数据，显示出来的图像就会出现上半部分和下半部分明显偏差的现象，我们称之为 “tearing” 
+
+![](.gitbook/assets/one_buffer.jpg)
 
 ### 双缓存（Double Buffer）
 
@@ -1449,11 +1455,23 @@ CPU/GPU 向 Buffer 中生成图像，屏幕从 Buffer 中取图像、刷新后�
 
 在这种模型下，只有当 VSync 信号产生时，CPU/GPU 才会开始绘制。这样，当帧率大于刷新频率时，帧率就会被迫跟刷新频率保持同步，从而避免“tearing”现象。
 
-注意，当 VSync 信号发出时，如果 GPU/CPU 正在生产帧数据，此时不会发生复制操作。屏幕进入下一个刷新周期时，从 Frame Buffer 中取出的是“老”数据，而非正在产生的帧数据，即两个刷新周期显示的是同一帧数据。这是我们称发生了“掉帧”（Dropped Frame，Skipped Frame，Jank）现象。 ![](/images/double_buffer.jpg)
+注意，当 VSync 信号发出时，如果 GPU/CPU 正在生产帧数据，此时不会发生复制操作。屏幕进入下一个刷新周期时，从 Frame Buffer 中取出的是“老”数据，而非正在产生的帧数据，即两个刷新周期显示的是同一帧数据。这是我们称发生了“掉帧”（Dropped Frame，Skipped Frame，Jank）现象。 
+
+![](.gitbook/assets/double_buffer.jpg)
 
 ### 三缓存（Triple Buffer）
 
-双缓冲的问题在于：当 CPU/GPU 绘制一帧的时间超过 16 ms 时，会产生 Jank。更要命的是，产生 Jank 的那一帧的显示期间，GPU/CPU 都是在闲置的。 如下图，A、B 和 C 都是 Buffer。蓝色代表 CPU 生成 Display List，绿色代表 GPU 执行 Display List 中的命令从而生成帧，黄色代表生成帧完成。 ![](/images/double_buffer_jank.jpg) 如果有第三个 Buffer 能让 CPU/GPU 在这个时候继续工作，那就完全可以避免第二个 Jank 的发生了！ ![](/images/triple_buffer_jank.jpg) 于是就有了三缓存 ![](/images/triple_buffer.jpg)
+双缓冲的问题在于：当 CPU/GPU 绘制一帧的时间超过 16 ms 时，会产生 Jank。更要命的是，产生 Jank 的那一帧的显示期间，GPU/CPU 都是在闲置的。 如下图，A、B 和 C 都是 Buffer。蓝色代表 CPU 生成 Display List，绿色代表 GPU 执行 Display List 中的命令从而生成帧，黄色代表生成帧完成。 
+
+![](.gitbook/assets/double_buffer_jank.jpg)
+
+ 如果有第三个 Buffer 能让 CPU/GPU 在这个时候继续工作，那就完全可以避免第二个 Jank 的发生了！ 
+
+![](.gitbook/assets/triple_buffer_jank.jpg)
+
+ 于是就有了三缓存 
+
+![](.gitbook/assets/triple_buffer.jpg)
 
 需要注意的是，第三个缓存并不是总是存在的，只要当需要的时候才会创建。之所以这样，是因为三缓存会显著增加用户输入到显示的延迟时间。如上图，帧 C 是在第 2 个刷新周期产生的，但却是在第 4 个周期显示的。最坏的情况下，你会同时遇到输入延迟和卡顿现象。
 
