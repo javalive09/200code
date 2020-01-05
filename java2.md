@@ -238,7 +238,9 @@ static Entry <K,V> implementsMap.Entry<K,V>{
 }
 ```
 
-默认数组长度为16 默认负载因子0.75 \(可在初始化时显式指定\) 当size &gt; 12\(16 \_0.75\) 扩容，扩容到容量的2倍（16\_2） put元素时，会先对比hash值和equals内容。判断键值是否相等。 可以用来做统计文字出现次数的容器 ![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/hashmap.jpg)
+默认数组长度为16 默认负载因子0.75 \(可在初始化时显式指定\) 当size &gt; 12\(16 \_0.75\) 扩容，扩容到容量的2倍（16\_2） put元素时，会先对比hash值和equals内容。判断键值是否相等。 可以用来做统计文字出现次数的容器 
+
+![](.gitbook/assets/hashmap.jpg)
 
 #### concurrentHashmap
 
