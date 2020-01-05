@@ -385,132 +385,143 @@ git submodule sync
 
 假设，你要在各个项目里的/support/src/main/common-proto这个目录对 git@git.raventech.cn:H1S/common-proto.git这个项目做Subtree
 
-1. add remote
-
-   \`\`\`
-
-   git remote add proto git@git.raventech.cn:H1S/common-proto.git  
+### add remote
 
 ```text
-2. add subtree
+git remote add proto git@git.raventech.cn:H1S/common-proto.git  
 ```
 
-cd 项目的路径  
+### add subtree
+
+```text
+cd 项目的路径
 git subtree add --prefix=用来放proto项目的相对路径 proto项目git地址 xxx分支
-
 git subtree add --prefix=/support/src/main/common-proto proto master
-
-```text
-3. update
 ```
 
+### update
+
+```text
 git subtree pull --prefix=/support/src/main/common-proto proto master
-
-```text
-4. push subtree commit
 ```
 
+### push subtree commit
+
+```text
 git subtree push --prefix=/support/src/main/common-proto proto hotfix/proto
-
 在common-proto项目中合并hotfix/proto即可
-
-```text
-# [速查表](https://git-scm.com/docs)
-
-
-# 本地多分支共享多平台代码方式
-## 拉取一个平台的代码到本地
 ```
 
+## [速查表](https://git-scm.com/docs)
+
+## 本地多分支共享多平台代码方式
+
+### 拉取一个平台的代码到本地
+
+```text
 git clone git@github.com:javalive09/CodeBag.git
-
-```text
-## add其他仓库
 ```
 
-git remote add other [https://xxxxx](https://xxxxx)
+### add其他仓库
 
-```text
-## fetch remote 仓库
+```
+git remote add other https://xxxxx
 ```
 
+### fetch remote 仓库
+
+```text
 git remote -v git fetch other
-
-```text
-## 切换到仓库分支
 ```
 
-git remote -v git checkout remotes/other/master  
+### 切换到仓库分支
+
+```
+git remote -v git checkout remotes/other/master
 git checkout -b other@master
-
-```text
-## push新库分支
 ```
 
-git push other refs/heads/other@master:refs/heads/master // src:dest 从本地other@master push 到 远程 master git push other HEAD:refs/heads/master // src:dest 从本地HEAD push 到 远程 master
+### push新仓库分支
 
 ```text
-## pull新库分支
+git push other refs/heads/other@master:refs/heads/master 
+// src:dest 从本地other@master push 到 远程 master 
+
+git push other HEAD:refs/heads/master 
+// src:dest 从本地HEAD push 到 远程 master
 ```
 
-git pull other refs/heads/master:refs/heads/other@master //src:dest 从远程master pull 到本地 other@master
+### pull新仓库分支
+
+```
+git pull other refs/heads/master:refs/heads/other@master 
+//src:dest 从远程master pull 到本地 other@master
+```
+
+### pull 更方便的办法（设置upstream）
 
 ```text
-## pull 更方便的办法（设置upstream）
-```
-
 git branch -vv//查看本地分支和远程分支关联关系
 
-git branch -u other/master //设置分支的upstream == git branch --set-upstream-to=other/master other@master git branch -vv //检查是否关联上了
+git branch -u other/master 
+//设置分支的upstream == git branch --set-upstream-to=other/master other@master
 
-```text
-# The Refspec
-其中 spec 是 specification 的简写。最早把 refspec 翻译为“引用表达式”，现已经修改为“引用规则”，相应的 pathspec 翻译为“路径规则”。
-[官网](https://git-scm.com/book/zh/v1/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-The-Refspec)
-Refspec 的格式是一个可选的 + 号，接着是 <src>:<dst> 的格式，这里 <src> 是远端上的引用格式， <dst> 是将要记录在本地的引用格式。可选的 + 号告诉 Git 在即使不能快速演进的情况下，也去强制更新它。
+git branch -vv //检查是否关联上了
+```
 
-## fetch其他库的分支
+## The Refspec
+
+其中 spec 是 specification 的简写。最早把 refspec 翻译为“引用表达式”，现已经修改为“引用规则”，相应的 pathspec 翻译为“路径规则”。 [官网](https://git-scm.com/book/zh/v1/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-The-Refspec) Refspec 的格式是一个可选的 + 号，接着是 : 的格式，这里  是远端上的引用格式，  是将要记录在本地的引用格式。可选的 + 号告诉 Git 在即使不能快速演进的情况下，也去强制更新它。
+
+### fetch其他库的分支
+
 如你有一个QA组，他们推送一系列分支，你想每次获取 master 分支和QA组的所有分支，你可以在.git/config中使用这样的配置：
-```
-
-\[remote "origin"\] url = git@github.com:schacon/simplegit-progit.git fetch = +refs/heads/master:refs/remotes/origin/master fetch = +refs/heads/qa/_:refs/remotes/origin/qa/_
 
 ```text
-## push到其他库的分支
+[remote "origin"] url = git@github.com:schacon/simplegit-progit.git 
+fetch = +refs/heads/master:refs/remotes/origin/master 
+fetch = +refs/heads/qa/:refs/remotes/origin/qa/
+```
+
+### push到其他库分支
+
 如果QA组成员想把他们的 master 分支推送到远程的 qa/master 分支上，可以这样运行：
-```
 
+```text
 git push origin master:refs/heads/qa/master
+```
 
-```text
 如果他们想让 Git 每次运行 git push origin 时都这样自动推送，在.git/config中自定义push
-```
-
-\[remote "origin"\] url = git@github.com:schacon/simplegit-progit.git fetch = +refs/heads/_:refs/remotes/origin/_ push = refs/heads/master:refs/heads/qa/master
 
 ```text
-## 删除分支
-
-因为 refspec 的格式是 <src>:<dst>, 通过把 <src> 部分留空的方式，这个意思是是把远程的 topic 分支变成空，也就是删除它。
+[remote "origin"] url = git@github.com:schacon/simplegit-progit.git 
+fetch = +refs/heads/:refs/remotes/origin/ 
+push = refs/heads/master:refs/heads/qa/master
 ```
 
+### 删除分支
+
+因为 refspec 的格式是 :, 通过把  部分留空的方式，这个意思是是把远程的 topic 分支变成空，也就是删除它。
+
+```text
 git push origin :topic
-
-```text
-# refs/for/ 和refs/heads/
-[详细解释](https://blog.csdn.net/caomiao2006/article/details/44243309)
-1.     这个不是git的规则，而是gerrit的规则，
-2.     Branches, remote-tracking branches, and tags等等都是对commite的引用（reference）,引用都以 “refs/……”表示. 比如remote branch: origin/git_int(=refs/remotes/origin/git_int)， local tag: v2.0(=refs/tags/v2.0)， local branch: git_int(=refs/heads/git_int)…
-3.     简单点说，就是refs/for/mybranch需要经过code review之后才可以提交；refs/heads/mybranch不需要code review。
-
-
-# gitk(The git repository browser)
-[文档](https://docs.oracle.com/cd/E56344_01/html/E54075/gitk-1.html#scrolltoc)
 ```
+
+### refs/for/ 和refs/heads/
+
+[详细解释](https://blog.csdn.net/caomiao2006/article/details/44243309) 
+
+1. 这个不是git的规则，而是gerrit的规则， 
+
+2. Branches, remote-tracking branches, and tags等等都是对commite的引用（reference）,引用都以 “refs/……”表示. 比如remote branch: origin/git\_int\(=refs/remotes/origin/git\_int\)， local tag: v2.0\(=refs/tags/v2.0\)， local branch: git\_int\(=refs/heads/git\_int\)… 
+
+3. 简单点说，就是refs/for/mybranch需要经过code review之后才可以提交；refs/heads/mybranch不需要code review。
+
+## gitk\(The git repository browser\)
+
+[文档](https://docs.oracle.com/cd/E56344_01/html/E54075/gitk-1.html#scrolltoc)
 
 gitk \[...\] \[\] \[--\] \[...\] //命令格式
 
 gitk //显示当前分支 gitk --all //显示当前目录下 全部分支 --all 为 option gitk ./ //显示当前目录下 当前分支
-
-\`\`\`
 
