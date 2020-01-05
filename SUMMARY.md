@@ -1,8 +1,8 @@
 # Table of contents
 
-* [在线工具集](README.md)
-* [java1](java1.md)
-* [java2](java2.md)
+* [在线工具](README.md)
+* [Java1](java1.md)
+* [Java2](java2.md)
 * [Java3](java3.md)
 * [网络](wang-luo.md)
 * [设计模式](she-ji-mo-shi.md)
@@ -23,7 +23,4 @@
 * [Ubunut16.04下载/编译/调试Android源码](ubunut16.04-xia-zai-bian-yi-tiao-shi-android-yuan-ma.md)
 
 ## java
-
-* [Untitled](java/untitled.md)
-* [Untitled](java/untitled-1.md)
 
