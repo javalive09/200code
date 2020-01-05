@@ -1,7 +1,5 @@
 # MacOS下用移动硬盘下载编译Android源码
 
-
-
 ## 下载
 
 [android细分版本号列表](https://source.android.com/setup/start/build-numbers)
