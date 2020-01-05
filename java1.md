@@ -1,86 +1,96 @@
 # Java1
 
-## 基本类型
+## 数据类型
 
-### 数据类型
+### 基本数据类型\(4类8种，能自动装箱\)
 
-#### 基本数据类型（4类8种，能自动装箱）
+#### **整形**
 
-**整形**
+byte（8 bit，1个字节 -128~127）
 
-**byte（8 bit，1个字节 -128~127）**
-
+{% hint style="info" %}
 存储和传输容量的计量单位，字节。最早的PC机数据总线宽度是8（8根线）用8位表示一个字（c中char是一个字节） 表示方法1：byte b = 1; 注意：默认类型是int型，所以当b在\[-128,127\]之间时编译器不会报错。 例如：byte a = 1；byte b = 2；byte c； c = a + 1; //会报错，相当于把int赋值给byte c = a + b //会报错，相当于把int赋值给byte short （16 bit， 2个字节） short a = 1; int b = a;//编译报错 注意：不可以显示的将范围大的数据类型赋值给范围小的数据类型 总结：可以将范围小的值赋给表示范围大的变量；但不能将表示范围大的值赋给表示范围小的变量，只能通过强制类型转换 范围大的强转成范围小的变量时：前面舍位 范围小的强转成范围大的变量时：前面补位 ,如是正数前面补位0，如是负数前面补位1.
+{% endhint %}
 
-**short（16 bit， 2个字节）**
+short（16 bit， 2个字节）
 
+{% hint style="info" %}
 short a = 1; int b = a;//编译报错 注意：不可以显示的将范围大的数据类型赋值给范围小的数据类型 总结：可以将范围小的值赋给表示范围大的变量；但不能将表示范围大的值赋给表示范围小的变量，只能通过强制类型转换 范围大的强转成范围小的变量时：前面舍位 范围小的强转成范围大的变量时：前面补位 ,如是正数前面补位0，如是负数前面补位1.
+{% endhint %}
 
-**int（32 bit，4个字节）**
+int（32 bit，4个字节）
 
+{% hint style="info" %}
 整形的默认类型 表示方法: int i = 1;
+{% endhint %}
 
-**long（64 bit，8个字节）**
+long（64 bit，8个字节）
 
+{% hint style="info" %}
 表示方法1： long m = 1; 表示方法2： long m = 2l; 表示方法3： long m = 2L;
+{% endhint %}
 
-**浮点型**
+#### **浮点型**
 
-**float（32bit， 4个字节）**
+float（32bit， 4个字节）
 
+{% hint style="info" %}
 表示方法1：float f = 11.11f; 表示方法2：float f = 11.11F;
+{% endhint %}
 
-**double（64bit，8个字节 ）**
+double（64bit，8个字节 ）
 
+{% hint style="info" %}
 浮点型的默认类型 表示方法1：double d = 11.11; 表示方法2：double d = 11.11D; 表示方法3：double d = 11.11d;
+{% endhint %}
 
-**字符型**
+#### **字符型**
 
-**char（16 bit， 2个字节）**
+char（16 bit， 2个字节）
 
+{% hint style="info" %}
 表示方法1：char c = ‘c’;表示一个字符 表示方法2：char c = 56;表示一个整数
+{% endhint %}
 
-**布尔型**
+#### **布尔型**
 
-**boolean（1 bit）**
+boolean（1 bit）
 
+{% hint style="info" %}
 为了纪念英国数学家Boole-George，在逻辑运算（与或非，因果关系的运算）中有突出贡献 表示方法： boolean b =true/false;
+{% endhint %}
 
-**强制转换**
+#### **强制转换**
 
-**正数**
+正数
 
-小范围 --&gt; 大范围 ： 前面空位补0 大范围 --&gt; 小范围 ： 前面空位去0
+* 小范围 --&gt; 大范围 ： 前面空位补0 
+* 大范围 --&gt; 小范围 ： 前面空位去0
 
-**负数**
+负数
 
-小范围 --&gt; 大范围 ： 前面空位补1 大范围 --&gt; 小范围 ： 前面空位去1
+* 小范围 --&gt; 大范围 ： 前面空位补1 
+*  大范围 --&gt; 小范围 ： 前面空位去1
 
-**十六进制字符串转换成int方法**
+### 引用数据类型
 
-有时候编写color 相关 的程序时，需要将十六进制字符串转换成int。 String str = "0xC0A80010";  
-Integer ss = 0xC0A80010;  
-Long longStr = Long.parseLong\(str.substring\(2\), 16\);  
-ss = longStr.intValue\(\);  
-System.out.println\(ss\);  
-System.out.println\(Integer.toHexString\(ss\)\); 打印结果：  
--1062731760 c0a80010
+#### **类（class）**
 
-#### 引用数据类型
+包装类（能自动拆箱）
 
-**类（class）**
-
-**包装类（能自动拆箱）**
-
+{% hint style="info" %}
 Byte，Short， Integer（自动装箱时 ，integer有一个缓存，介于-128~127之间的整数装箱时会用缓存的内容，超过范围会生成新的对象，所以比较integer时要注意 integer == integer） Long，Float，Double，Character，Boolean
+{% endhint %}
 
-**枚举类**
+枚举类
 
+{% hint style="info" %}
 枚举每个元素都是该类的实例 枚举元素必须位于枚举类最开始 枚举只有一个成员时，可以作为一种单例实现形式
+{% endhint %}
 
-**其他类**
+其他类
 
-**接口（interface）**
+#### **接口（interface）**
 
 #### String字符串
 
@@ -384,95 +394,6 @@ serializable、cloneable
 **属性，方法混合抽象**
 
 把共有的属性，方法抽象到父类。 这个的例子非常多。 如： android中的 context ， View，等等。
-
-## 内存回收
-
-Java虚拟机启动后会启动一个gc线程，gc线程会不定时的进行垃圾回收工作。 什么对象会被回收？
-
-### 引用计数方式回收
-
-某个对象有一个引用，计数器加1；引用断开，计数器减1。 gc线程工作时发现引用计数器为0的对象就会回收它。
-
-### 根遍历方式回收
-
-入口根遍历如果发现有没有被引用的对象就回收它。
-
-### 引用类型
-
-#### 强引用 StrongReference
-
-某个对象只有强引用时，它就永远不会被回收。
-
-#### 软引用 SoftReference
-
-某个对象只有软引用时，当内存不够时，会回收这个对象。如果内存仍然不够则抛出内存溢出异常。
-
-#### 弱引用 WeakReference
-
-某个对象只有弱引用时，当gc线程回收的时候，它一定会被回收。
-
-#### 虚引用 PhantomReference
-
-配合ReferenceQueue可以让我们准确地知道对象何时被从内存中删除。 注: 虚引用在回收前会将对象放入引用队列，其他引用是回收后放入。 [codebag demo](https://github.com/javalive09/CodeBag/blob/master/sample/src/main/java/com/javalive09/sample/project/raventech/reference.java)
-
-```text
-    public class PhantomReferenceTest {
-        public static void main(String... args){
-            ReferenceQueue rq = new ReferenceQueue(); 
-            A a = new A();
-            a.s ="hello";
-            Reference r = new PhantomReference(a, rq);
-            a = null;
-            System.gc();    
-
-            new Thread(new Runnable() {
-                public void run() {
-                    while(Reference ref = rq.remove != null )  {
-                        System.out.println(ref.get());
-                    }
-                }
-            }).start();
-        } 
-    }
-    class A{
-        String s;
-    }
-```
-
-### ReferenceQueue的作用
-
-SoftReference, WeakReference, PhantomReference 都可以在构造的时候加入ReferenceQueue参数。 当包装对象被gc的时候，对应的包装类reference会被放入ReferenceQueue中。通过检查ReferenceQueue是否为空来判断对象的回收。 例如 leakcanary中对对象是否回收的判断
-
-```text
-private void removeWeaklyReachableReferences() {
-    KeyedWeakReference ref;
-    while((ref = (KeyedWeakReference) queue.poll()) != null) {
-        retainedKeys.remove(ref.key);
-    }
-}
-```
-
-### Queue 中的几个方法的区别
-
-```text
-add：当添加元素个数超过队列的限制 抛出异常
-offer：当添加元素个数超过队列的限制 不抛出异常 只返回false
-
-remove：删除队列第一个元素，当队列为空时 抛出异常
-poll：删除队列第一个元素，当队列为空时 不抛出异常 只返回null
-
-element: 查询队列第一个元素，当队列为空时 抛出异常
-peek：查询队列第一个元素，当队列为空时 不抛出异常 只返回null
-```
-
-#### Soft vs Weak vs Phantom References
-
-| Type | Purpose | Use | When GCed | Implementing Class |
-| :--- | :--- | :--- | :--- | :--- |
-| Strong Reference | An ordinary reference. Keeps objects alive as long as they are referenced. | normal reference. | Any object not pointed to can be reclaimed. | default |
-| Soft Reference | Keeps objects alive provided there’s enough memory. | to keep objects alive even after clients have removed their references \(memory-sensitive caches\), in case clients start asking for them again by key. | After a first gc pass, the JVM decides it still needs to reclaim more space. | java.lang.ref.SoftReference |
-| Weak Reference | Keeps objects alive only while they’re in use \(reachable\) by clients. | Containers that automatically delete objects no longer in use. | After gc determines the object is only weakly reachable | java.lang.ref.WeakReference java.util.WeakHashMap |
-| Phantom Reference | Lets you clean up after finalization but before the space is reclaimed \(replaces or augments the use of finalize\(\)\) | Special clean up processing | After finalization. | java.lang.ref.PhantomReference |
 
 ## 异常处理
 
