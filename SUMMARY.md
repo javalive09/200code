@@ -1,6 +1,6 @@
 # Table of contents
 
-* [关于一句话](README.md)
+* [前言](README.md)
 * [Java1](java1.md)
 * [Java2](java2.md)
 * [Java3](java3.md)

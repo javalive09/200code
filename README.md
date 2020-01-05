@@ -1,4 +1,4 @@
-# 关于一句话
+# 前言
 
 ## Geology is the study of pressure and time.That's all it takes, really.
 
