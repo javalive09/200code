@@ -1,7 +1,5 @@
 # 网络
 
-
-
 ## URI（uniformresource identifier）和URL（universal resource Loactor）的区别
 
 一个URI定义了一种资源，它是一个定位符。 一个URI由两部分组成： scheme （URI协议名）：scheme-specific-part（URI协议对应的内容） 一个URL由三部分组成：scheme（协议）：// 主机IP地址 / 资源具体地址 一个URI是一个URL或URN URL、URN是URI的子集 当对某种资源是URL还是URI产生疑惑时，用URI来定义它
@@ -122,17 +120,13 @@
 * DNT
 * P3P
 
-## OSI网络模型
-
-7层，应用程（经理）：负责写草稿 / 阅读信件 --------------- 内容提供或阅读内容 6层，表示层（助理）：负责将草稿写成正规格式的信 / 翻译信的内容 ---------------加解密 5层，会话层（秘书）：负责写好信封（收信人地址） / 打开信件 ---------------建立通讯 4层，传输层（司机）：将信带到邮局 / 从邮局拿回信 ---------------确保数据传输
-
-3层，网络层（排序工人）： 将信件根据收件地址分类 / 整理分类出信件 ---------------将发送方的数据传到接收方，路由器 2层，数据链路层（包装工人）：将信件包装 / 打开包装 ---------------管理比特数据，交换机 1层，物理层（搬运工人）： 将信件装上车 / 将信件卸下车 ---------------物理设备，传输高低电压，如电缆
-
 ## tcp连接 为什么要进行3次握手，断开为什么要4次握手
+
+![](.gitbook/assets/tcp-on-off.jpg)
 
 ### 建立连接
 
-![](/images/tcp-on-off.jpg) [3次握手具体抓包分析](http://www.omnisecu.com/tcpip/tcp-three-way-handshake.php)
+ [3次握手具体抓包分析](http://www.omnisecu.com/tcpip/tcp-three-way-handshake.php)
 
 《计算机网络》中是这样解释的：
 
@@ -442,7 +436,7 @@ re.getEntity().getContent().
 
 ## https
 
-![](/images/ssl_handshake_rsa.png)
+![](.gitbook/assets/ssl_handshake_rsa.jpg)
 
 ## TCP/IP 网络模型
 
