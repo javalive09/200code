@@ -1,7 +1,5 @@
 # 性能优化
 
-
-
 ## ui优化
 
 ### 防止过度绘制
@@ -146,5 +144,39 @@ set方式：
 Integer[] arr = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 Set<Integer> indexes = new HashSet<>(Arrays.asList(arr));
 Integer[] random = indexes.toArray(new Integer[arr.size()]);
+```
+
+
+
+## String技巧
+
+### StringFormat 补0；
+
+```text
+        for (int i = 0; i < 24; i++) {
+            if (i < 10) {
+                mHours.add("0" + String.valueOf(i));
+            } else {
+                mHours.add(String.valueOf(i));
+            }
+        }
+
+        for (int i = 0; i < 60; i++) {
+            if (i < 10) {
+                mMinutes.add("0" + String.valueOf(i));
+            } else {
+                mMinutes.add(String.valueOf(i));
+            }
+        }
+```
+
+```text
+        for (int i = 0; i < 24; i++) {
+            mHours.add(String.format(Local.getDefault(), "%02d"), i));
+        }
+
+        for (int i = 0; i < 60; i++) {
+            mMinutes.add(String.format(Local.getDefault(), "%02d",i));
+        }
 ```
 
