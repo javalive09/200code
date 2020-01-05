@@ -78,7 +78,7 @@ OO（Object-Orientation）：面向对象，一种系统建模技术 OOP（Objec
 
 ### UML关系例子
 
-![&#x4F8B;&#x5B50;](/images/uml.jpg)
+![](.gitbook/assets/uml.jpg)
 
 ## 创建型设计模式\(6\)
 
@@ -104,11 +104,11 @@ Android SDK 中的InputMethodManager.getInstance\(\) Android SDK 中的SystemCon
 
 #### 类图
 
-![](/images/singleton.jpg)
+![](.gitbook/assets/singleton.jpg)
 
 #### 示例图
 
-![](/images/singleton_pic.png)
+![](.gitbook/assets/singleton_pic.jpg)
 
 ### Static Factory（静态工厂、简单工厂）
 
@@ -132,7 +132,7 @@ Android SDK中的BitmapFactory.decodexxx\(\) JDK中的Class.forName\(\) JDK 中�
 
 #### 类图
 
-![](/images/staticfactory.jpg)
+![](.gitbook/assets/staticfactory.jpg)
 
 ### Factory Method（工厂方法）
 
@@ -152,11 +152,11 @@ JDK中的Threadfactory
 
 #### 类图
 
-![](/images/factorymethod.jpg)
+![](.gitbook/assets/factorymethod.jpg)
 
 #### 示例图
 
-![](/images/fatory_method_pic.png)
+![](.gitbook/assets/fatory_method_pic.jpg)
 
 ### Abstract Factory（抽象工厂）
 
@@ -172,11 +172,11 @@ JDK中的Threadfactory
 
 #### 类图
 
-![](/images/abstractfactory.jpg)
+![](.gitbook/assets/abstractfactory.jpg)
 
 #### 示例图
 
-![](/images/abstract_factory_pic.png)
+![](.gitbook/assets/abstract_factory_pic.jpg)
 
 ### Builder（建造者）
 
@@ -196,11 +196,11 @@ Android SDK中的AlertDialog.Builder JDK中的Java.lang.StringBuilder的 append\
 
 #### 类图
 
-![](/images/builder.jpg)
+![](.gitbook/assets/builder.jpg)
 
 #### 示例图
 
-![](/images/builder_pic.png)
+![](.gitbook/assets/builder_pic.jpg)
 
 ### Protoype（原型模式）
 
@@ -224,11 +224,11 @@ Android SDK中的Intent.clone\(\) jdk中的clone
 
 #### 类图
 
-![](/images/prototype.jpg)
+![](.gitbook/assets/prototype.jpg)
 
 #### 示例图
 
-![](/images/prototype_pic.png)
+![](.gitbook/assets/prototype_pic.jpg)
 
 ## 结构型设计模式\(7\)
 
@@ -250,11 +250,11 @@ Android SDK中的adapter Java JDK中的InputStreamReader
 
 #### 类图
 
-![](/images/adapter.png)
+![](.gitbook/assets/adapter.png)
 
 #### 示例图
 
-![](/images/adapter_pic.png)
+![](.gitbook/assets/adapter_pic.jpg)
 
 ### Composite（组合模式）
 
@@ -274,11 +274,11 @@ Android View层级结构
 
 #### 类图
 
-![](/images/composite.png)
+![](.gitbook/assets/composite.png)
 
 #### 示例图
 
-![](/images/composite_pic.png)
+![](.gitbook/assets/composite_pic.jpg)
 
 ### Decorator（装饰器模式）
 
@@ -298,11 +298,11 @@ jdk中的io inputstream
 
 #### 类图
 
-![](/images/decorator.png)
+![](.gitbook/assets/decorator.png)
 
 #### 示例图
 
-![](/images/decorator_pic.png)
+![](.gitbook/assets/decorator_pic.jpg)
 
 ### Proxy（代理模式）
 
@@ -322,11 +322,11 @@ Android中的phoneproxy
 
 #### 类图
 
-![](/images/proxy.png)
+![](.gitbook/assets/proxy.png)
 
 #### 示例图
 
-![](/images/proxy_pic.png)
+![](.gitbook/assets/proxy_pic.jpg)
 
 ### Flyweight（享元模式）
 
@@ -346,11 +346,11 @@ Android SDK中的Message.obtain\(\) JDK中的integer的valueOf\(\)
 
 #### 类图
 
-![](/images/flyweight.png)
+![](.gitbook/assets/flyweight.png)
 
 #### 示例图
 
-![](/images/flyweight_pic.png)
+![](.gitbook/assets/flyweight_pic.jpg)
 
 ### Facade（门面模式）
 
@@ -366,7 +366,9 @@ jdk中的Class ![](/images/facade.png)
 
 #### 示例图
 
-![](/images/facade_pic.png)
+![](.gitbook/assets/facade.png)
+
+![](.gitbook/assets/facade_pic.jpg)
 
 ### Bridge \(桥接模式\)
 
@@ -382,11 +384,11 @@ jdk中的Class ![](/images/facade.png)
 
 #### 类图
 
-![](/images/bridge.jpeg)
+![](.gitbook/assets/bridge.jpeg)
 
 #### 示例图
 
-![](/images/bridge_pic.png)
+![](.gitbook/assets/bridge_pic.jpg)
 
 ## 行为型设计模式\(11\)
 
@@ -404,11 +406,11 @@ jdk中的Class ![](/images/facade.png)
 
 #### 类图
 
-![](/images/state.png)
+![](.gitbook/assets/state.png)
 
 #### 示例图
 
-![](/images/state_pic.png)
+![](.gitbook/assets/state_pic.jpg)
 
 ### Strategy（策略模式）
 
@@ -428,11 +430,11 @@ jdk中的collections sort 排序 jdk中的treemap Comparator 参数的构造器 
 
 #### 类图
 
-![](/images/strategy.png)
+![](.gitbook/assets/strategy.png)
 
 #### 示例图
 
-![](/images/strategy_pic.png)
+![](.gitbook/assets/strategy_pic.jpg)
 
 ### Observer（观察者）
 
@@ -452,11 +454,11 @@ jdk中的Observable Android中的广播
 
 #### 类图
 
-![](/images/observe.png)
+![](.gitbook/assets/observe.png)
 
 #### 示例图
 
-![](/images/observer_pic.png)
+![](.gitbook/assets/observer_pic.jpg)
 
 ### Chain of Responsibility（责任链）
 
@@ -476,11 +478,11 @@ Android中的view层消息传递，绘图
 
 #### 类图
 
-![](/images/chainofresponsibility.png)
+![](.gitbook/assets/chainofresponsibility.png)
 
 #### 示例图
 
-![](/images/chain_of_responsibility_pic.png)
+![](.gitbook/assets/chain_of_responsibility_pic.jpg)
 
 ### Command（命令模式）
 
@@ -496,11 +498,11 @@ Android中的view层消息传递，绘图
 
 #### 类图
 
-![](/images/command.jpg)
+![](.gitbook/assets/command.jpg)
 
 #### 示例图
 
-![](/images/command_pic.png)
+![](.gitbook/assets/command_pic.jpg)
 
 ### Memento（备忘录模式）
 
@@ -520,11 +522,11 @@ Android中activity onRestoreInstanceState\(\)
 
 #### 类图
 
-![](/images/memento.png)
+![](.gitbook/assets/memento.png)
 
 #### 示例图
 
-![](/images/memento_pic.png)
+![](.gitbook/assets/memento_pic.jpg)
 
 ### Iterator（迭代子）
 
@@ -540,11 +542,11 @@ jdk中的collection 的 iterator
 
 #### 类图
 
-![](/images/iterator.png)
+![](.gitbook/assets/iterator.png)
 
 #### 示例图
 
-![](/images/iterator_pic.png)
+![](.gitbook/assets/iterator_pic.jpg)
 
 ### TemplateMethod（模版方法）
 
@@ -564,11 +566,11 @@ Android 中activity的生命周期的回调函数
 
 #### 类图
 
-![](/images/templatemethod.png)
+![](.gitbook/assets/templatemethod.png)
 
 #### 示例图
 
-![](/images/template_method_pic.png)
+![](.gitbook/assets/template_method_pic.jpg)
 
 ### Interpreter \(解释器模式\)
 
@@ -584,11 +586,11 @@ Android 中activity的生命周期的回调函数
 
 #### 类图
 
-![](/images/interpreter.jpeg)
+![](.gitbook/assets/interpreter.jpeg)
 
 #### 示例图
 
-![](/images/interpreter_pic.png)
+![](.gitbook/assets/interpreter_pic.jpg)
 
 ### Mediator 中介者模式
 
@@ -604,11 +606,11 @@ Android 中activity的生命周期的回调函数
 
 #### 类图
 
-![](/images/mediator.jpeg)
+![](.gitbook/assets/mediator.jpeg)
 
 #### 示例图
 
-![](/images/mediator_pic.png)
+![](.gitbook/assets/mediator_pic.jpg)
 
 ### Visitor \(访问者模式\)
 
@@ -624,9 +626,9 @@ Android 中activity的生命周期的回调函数
 
 #### 类图
 
-![](/images/visitor.jpeg)
+![](.gitbook/assets/visitor.jpeg)
 
 #### 示例图
 
-![](/images/visitor_pic.png)
+![](.gitbook/assets/visitor_pic.jpg)
 
