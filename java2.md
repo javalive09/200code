@@ -181,6 +181,8 @@ public class DaemonTest {
 
 对应的工具类Collections，包含排序、洗牌等操作
 
+![](.gitbook/assets/collection_pic.png)
+
 #### List
 
 **ArrayList**
@@ -251,6 +253,19 @@ segments put时候，由于锁分段技术 多个锁保证 put的效率 get时�
 #### TreeMap
 
 key 有序的map
+
+### Queue 中的几个方法的区别
+
+```text
+add：当添加元素个数超过队列的限制 抛出异常
+offer：当添加元素个数超过队列的限制 不抛出异常 只返回false
+
+remove：删除队列第一个元素，当队列为空时 抛出异常
+poll：删除队列第一个元素，当队列为空时 不抛出异常 只返回null
+
+element: 查询队列第一个元素，当队列为空时 抛出异常
+peek：查询队列第一个元素，当队列为空时 不抛出异常 只返回null
+```
 
 ### 为什么重写类中的equals方法必须重写hashcode
 
