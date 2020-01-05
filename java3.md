@@ -154,6 +154,61 @@ java实现，父加载器是系统类加载器。
 
 对应栈区。 栈区中的内容是线程私有的。局部变量，参数变量是线程私有的。
 
+### 引用类型
+
+#### 强引用 StrongReference
+
+某个对象只有强引用时，它就永远不会被回收。
+
+#### 软引用 SoftReference
+
+某个对象只有软引用时，当内存不够时，会回收这个对象。如果内存仍然不够则抛出内存溢出异常。
+
+#### 弱引用 WeakReference
+
+某个对象只有弱引用时，当gc线程回收的时候，它一定会被回收。
+
+#### 虚引用 PhantomReference
+
+配合ReferenceQueue可以让我们准确地知道对象何时被从内存中删除。 注: 虚引用在回收前会将对象放入引用队列，其他引用是回收后放入。 [codebag demo](https://github.com/javalive09/CodeBag/blob/master/sample/src/main/java/com/javalive09/sample/project/raventech/reference.java)
+
+```text
+    public class PhantomReferenceTest {
+        public static void main(String... args){
+            ReferenceQueue rq = new ReferenceQueue(); 
+            A a = new A();
+            a.s ="hello";
+            Reference r = new PhantomReference(a, rq);
+            a = null;
+            System.gc();    
+
+            new Thread(new Runnable() {
+                public void run() {
+                    while(Reference ref = rq.remove != null )  {
+                        System.out.println(ref.get());
+                    }
+                }
+            }).start();
+        } 
+    }
+    class A{
+        String s;
+    }
+```
+
+#### ReferenceQueue的作用
+
+SoftReference, WeakReference, PhantomReference 都可以在构造的时候加入ReferenceQueue参数。 当包装对象被gc的时候，对应的包装类reference会被放入ReferenceQueue中。通过检查ReferenceQueue是否为空来判断对象的回收。 例如 leakcanary中对对象是否回收的判断
+
+```text
+private void removeWeaklyReachableReferences() {
+    KeyedWeakReference ref;
+    while((ref = (KeyedWeakReference) queue.poll()) != null) {
+        retainedKeys.remove(ref.key);
+    }
+}
+```
+
 ### 垃圾回收
 
 Java虚拟机启动后会启动一个gc线程，gc线程会不定时的进行垃圾回收工作。
@@ -162,19 +217,27 @@ Java虚拟机启动后会启动一个gc线程，gc线程会不定时的进行垃
 
 **引用计数算法**
 
-```text
+某个对象有一个引用，计数器加1；引用断开，计数器减1。 gc线程工作时发现引用计数器为0的对象就会回收它。
+
+{% hint style="warning" %}
 循环引用导致不可回收
-```
+{% endhint %}
 
 **可达性分析算法**
 
-```text
-可作为GC Root的对象包括以下几种：
-1. 虚拟机栈（栈帧中的本地变量表）中引用的对象
-2.方法区中类静态属性引用的对象
-3.方法区中常量引用的对象
+如果发现没有被GC Root引用的对象就回收它。
+
+{% hint style="info" %}
+可作为GC Root的对象包括以下几种： 
+
+1. 虚拟机栈（栈帧中的本地变量表）中引用的对象 
+
+2.方法区中类静态属性引用的对象 
+
+3.方法区中常量引用的对象 
+
 4.本地方法栈中 JNI（即一般说的 Native 方法）引用的对象
-```
+{% endhint %}
 
 #### 怎么回收垃圾
 
@@ -190,7 +253,15 @@ survivor：复制算法（高效，无碎片，占空间）
 
 Minor GC：发生在新生代     Major GC：发生在老年代
 
-内存担保机制下，无法安置的对象会直接进到老年代 1.大对象 【eden-&gt;老年代】 2.长期存活对象 age&gt;15 【survivor-&gt;老年代】 Survivor 区中每经历一次 Minor GC，年龄就增加 1 岁。 3.动态对象年龄 【survivor-&gt;老年代】 Survivor空间中相同年龄所有对象大小的总合大于 Survivor 空间的一半
+{% hint style="info" %}
+内存担保机制下，无法安置的对象会直接进到老年代 
+
+1.大对象 【eden-&gt;老年代】
+
+ 2.长期存活对象 age&gt;15 【survivor-&gt;老年代】 Survivor 区中每经历一次 Minor GC，年龄就增加 1 岁。
+
+ 3.动态对象年龄 【survivor-&gt;老年代】 Survivor空间中相同年龄所有对象大小的总合大于 Survivor 空间的一半
+{% endhint %}
 
 ## java多线程并发处理
 
