@@ -1,7 +1,5 @@
 # AndroidC
 
-
-
 ## activity
 
 ### activity launchmode
