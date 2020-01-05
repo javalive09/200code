@@ -1,96 +1,86 @@
 # Java1
 
-## 数据类型
+## 基本类型
 
-### 基本数据类型\(4类8种，能自动装箱\)
+### 数据类型
 
-#### **整形**
+#### 基本数据类型（4类8种，能自动装箱）
 
-byte（8 bit，1个字节 -128~127）
+**整形**
 
-{% hint style="info" %}
+**byte（8 bit，1个字节 -128~127）**
+
 存储和传输容量的计量单位，字节。最早的PC机数据总线宽度是8（8根线）用8位表示一个字（c中char是一个字节） 表示方法1：byte b = 1; 注意：默认类型是int型，所以当b在\[-128,127\]之间时编译器不会报错。 例如：byte a = 1；byte b = 2；byte c； c = a + 1; //会报错，相当于把int赋值给byte c = a + b //会报错，相当于把int赋值给byte short （16 bit， 2个字节） short a = 1; int b = a;//编译报错 注意：不可以显示的将范围大的数据类型赋值给范围小的数据类型 总结：可以将范围小的值赋给表示范围大的变量；但不能将表示范围大的值赋给表示范围小的变量，只能通过强制类型转换 范围大的强转成范围小的变量时：前面舍位 范围小的强转成范围大的变量时：前面补位 ,如是正数前面补位0，如是负数前面补位1.
-{% endhint %}
 
-short（16 bit， 2个字节）
+**short（16 bit， 2个字节）**
 
-{% hint style="info" %}
 short a = 1; int b = a;//编译报错 注意：不可以显示的将范围大的数据类型赋值给范围小的数据类型 总结：可以将范围小的值赋给表示范围大的变量；但不能将表示范围大的值赋给表示范围小的变量，只能通过强制类型转换 范围大的强转成范围小的变量时：前面舍位 范围小的强转成范围大的变量时：前面补位 ,如是正数前面补位0，如是负数前面补位1.
-{% endhint %}
 
-int（32 bit，4个字节）
+**int（32 bit，4个字节）**
 
-{% hint style="info" %}
 整形的默认类型 表示方法: int i = 1;
-{% endhint %}
 
-long（64 bit，8个字节）
+**long（64 bit，8个字节）**
 
-{% hint style="info" %}
 表示方法1： long m = 1; 表示方法2： long m = 2l; 表示方法3： long m = 2L;
-{% endhint %}
 
-#### **浮点型**
+**浮点型**
 
-float（32bit， 4个字节）
+**float（32bit， 4个字节）**
 
-{% hint style="info" %}
 表示方法1：float f = 11.11f; 表示方法2：float f = 11.11F;
-{% endhint %}
 
-double（64bit，8个字节 ）
+**double（64bit，8个字节 ）**
 
-{% hint style="info" %}
 浮点型的默认类型 表示方法1：double d = 11.11; 表示方法2：double d = 11.11D; 表示方法3：double d = 11.11d;
-{% endhint %}
 
-#### **字符型**
+**字符型**
 
-char（16 bit， 2个字节）
+**char（16 bit， 2个字节）**
 
-{% hint style="info" %}
 表示方法1：char c = ‘c’;表示一个字符 表示方法2：char c = 56;表示一个整数
-{% endhint %}
 
-#### **布尔型**
+**布尔型**
 
-boolean（1 bit）
+**boolean（1 bit）**
 
-{% hint style="info" %}
 为了纪念英国数学家Boole-George，在逻辑运算（与或非，因果关系的运算）中有突出贡献 表示方法： boolean b =true/false;
-{% endhint %}
 
-#### **强制转换**
+**强制转换**
 
-正数
+**正数**
 
-* 小范围 --&gt; 大范围 ： 前面空位补0 
-* 大范围 --&gt; 小范围 ： 前面空位去0
+小范围 --&gt; 大范围 ： 前面空位补0 大范围 --&gt; 小范围 ： 前面空位去0
 
-负数
+**负数**
 
-* 小范围 --&gt; 大范围 ： 前面空位补1 
-*  大范围 --&gt; 小范围 ： 前面空位去1
+小范围 --&gt; 大范围 ： 前面空位补1 大范围 --&gt; 小范围 ： 前面空位去1
 
-### 引用数据类型
+**十六进制字符串转换成int方法**
 
-#### **类（class）**
+有时候编写color 相关 的程序时，需要将十六进制字符串转换成int。 String str = "0xC0A80010";  
+Integer ss = 0xC0A80010;  
+Long longStr = Long.parseLong\(str.substring\(2\), 16\);  
+ss = longStr.intValue\(\);  
+System.out.println\(ss\);  
+System.out.println\(Integer.toHexString\(ss\)\); 打印结果：  
+-1062731760 c0a80010
 
-包装类（能自动拆箱）
+#### 引用数据类型
 
-{% hint style="info" %}
+**类（class）**
+
+**包装类（能自动拆箱）**
+
 Byte，Short， Integer（自动装箱时 ，integer有一个缓存，介于-128~127之间的整数装箱时会用缓存的内容，超过范围会生成新的对象，所以比较integer时要注意 integer == integer） Long，Float，Double，Character，Boolean
-{% endhint %}
 
-枚举类
+**枚举类**
 
-{% hint style="info" %}
 枚举每个元素都是该类的实例 枚举元素必须位于枚举类最开始 枚举只有一个成员时，可以作为一种单例实现形式
-{% endhint %}
 
-其他类
+**其他类**
 
-#### **接口（interface）**
+**接口（interface）**
 
 #### String字符串
 
@@ -439,7 +429,15 @@ serializable、cloneable
 
 ### 结构
 
-Throwable \|**\_**Error \|**\_**Exception **\_\_**\| **RuntimeException \_\_**\|_\_\__ other（checkException）
+```text
+Throwable
+        |_Error
+        |_Exception 
+                |__ RuntimeException
+                |__ other（checkException）
+```
+
+### UncaughtExceptionHandler
 
 > 如何获取及保存exception log 使用UncaughtExceptionHandler来捕获unchecked异常保存到SDcard，到一定大小后发送，然后重置。
 
@@ -463,37 +461,5 @@ public class CrashHandler implements UncaughtExceptionHandler {
     }
 
 }
-```
-
-## String技巧
-
-StringFormat 补0；
-
-```text
-        for (int i = 0; i < 24; i++) {
-            if (i < 10) {
-                mHours.add("0" + String.valueOf(i));
-            } else {
-                mHours.add(String.valueOf(i));
-            }
-        }
-
-        for (int i = 0; i < 60; i++) {
-            if (i < 10) {
-                mMinutes.add("0" + String.valueOf(i));
-            } else {
-                mMinutes.add(String.valueOf(i));
-            }
-        }
-```
-
-```text
-        for (int i = 0; i < 24; i++) {
-            mHours.add(String.format(Local.getDefault(), "%02d"), i));
-        }
-
-        for (int i = 0; i < 60; i++) {
-            mMinutes.add(String.format(Local.getDefault(), "%02d",i));
-        }
 ```
 
