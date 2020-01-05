@@ -97,7 +97,7 @@ Java虚拟机本身会始终引用这些类加载器，而这些类加载器则�
 
 **自定义的类加载器加载的类**
 
-![](.gitbook/assets/ping-mu-kuai-zhao-20200105-14.30.01.png)
+![](.gitbook/assets/class_gc_.jpg)
 
 如果程序运行过程中，将上图左侧三个引用变量都置为null，此时Sample对象结束生命周期，MyClassLoader对象结束生命周期，代表Sample类的Class对象也结束生命周期，Sample类在方法区内的二进制数据**被卸载**。
 
