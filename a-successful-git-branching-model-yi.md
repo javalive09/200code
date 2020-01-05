@@ -4,7 +4,7 @@ In this post I present the development model that I’ve introduced for some of 
 
 > 在这篇文章中我介绍了一个大概一年前引入到我的开发项目（工作项目和个人项目）中的事实证明非常成功的开发模型。一直以来我都想写一篇关于它的文章，直到现在才真正有一个充分的时间来写它。我不会谈论任何的项目细节，仅仅是关于分支的策略和分支发布的管理。
 
-![](/images/git-model.png)
+![](.gitbook/assets/git-model.jpg)
 
 It focuses around Git as the tool for the versioning of all of our source code. \(By the way, if you’re interested in Git, our company GitPrime provides some awesome realtime data analytics on software engineering performance.\)
 
@@ -38,7 +38,7 @@ The repository setup that we use and that works well with this branching model, 
 
 > 我们建立的这个仓库，使用的正是这个运行良好的分支模型，是一个集中式的仓库。注意，这个仓库我们认为它是一个集中式的仓库（git 是分布式的，从技术上来说没有集中仓库这一说）。我们把这个仓库称作origin，这个名字对于所有的git使用者来说都很熟悉。
 
-![](/images/centr-decentr.jpg)
+![](.gitbook/assets/centr-decentr.jpg)
 
 Each developer pulls and pushes to origin. But besides the centralized push-pull relationships, each developer may also pull changes from other peers to form sub teams. For example, this might be useful to work together with two or more developers on a big new feature, before pushing the work in progress to origin prematurely. In the figure above, there are subteams of Alice and Bob, Alice and David, and Clair and David.
 
@@ -56,7 +56,9 @@ At the core, the development model is greatly inspired by existing models out th
 
 > 其实，这个开发模型很大程度上是受到现有模型的启发。集中式仓库持有2个主要的长生命周期的分支： master develop origin上的master分支对于每个git开发者来说都很熟悉。平行于master的另一分支是develop。
 
-![](/images/main-branches@2x.jpg) We consider origin/master to be the main branch where the source code of HEAD always reflects a production-ready state.
+![](.gitbook/assets/main-branches-2x.jpg)
+
+We consider origin/master to be the main branch where the source code of HEAD always reflects a production-ready state.
 
 > 我们把代码HEAD指向的origin/master作为反映产品就绪状态的主要分支。
 
@@ -107,7 +109,7 @@ May branch off from: develop Must merge back into: develop Branch naming convent
 除了 master, develop, release-*, or hotfix-* 任意名字都可
 ```
 
-![](/images/fb@2x.jpg)
+![](.gitbook/assets/fb-2x.jpg)
 
 Feature branches \(or sometimes called topic branches\) are used to develop new features for the upcoming or a distant future release. When starting development of a feature, the target release in which this feature will be incorporated may well be unknown at that point. The essence of a feature branch is that it exists as long as the feature is in development, but will eventually be merged back into develop \(to definitely add the new feature to the upcoming release\) or discarded \(in case of a disappointing experiment\). Feature branches typically exist in developer repos only, not in origin.
 
@@ -147,7 +149,7 @@ The --no-ff flag causes the merge to always create a new commit object, even if 
 
 > --no-ff 将会创建新的提交点，即使是一个快进的提交。这会避免丢失特性分支的所有提交的历史信息，对比如下：
 
-![](/images/fb2@2x.jpg)
+![](.gitbook/assets/fb2-2x.jpg)
 
 In the latter case, it is impossible to see from the Git history which of the commit objects together have implemented a feature—you would have to manually read all the log messages. Reverting a whole feature \(i.e. a group of commits\), is a true headache in the latter situation, whereas it is easily done if the --no-ff flag was used. Yes, it will create a few more \(empty\) commit objects, but the gain is much bigger than the cost.
 
@@ -254,7 +256,7 @@ Deleted branch release-1.2 (was ff452fe).
 
 > 紧急bug修复分支
 
-![](/images/hotfix.jpg)
+![](.gitbook/assets/hotfix.jpg)
 
 May branch off from: master Must merge back into: develop and master Branch naming convention: hotfix-\*
 
