@@ -66,6 +66,12 @@ IP数据包的标头长度为20字节，加上嵌入的TCP数据包，总长度�
 
 本机收到HTTP响应以后，就可以将网页显示出来，完成一次网络通信。
 
+{% hint style="info" %}
+[互联网协议入门（一）](http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html)
+
+[互联网协议入门（二）](http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html)
+{% endhint %}
+
 
 
 
