@@ -24,3 +24,9 @@
 
 ![](.gitbook/assets/veqcku.png)
 
+{% hint style="info" %}
+[Android深入四大组件（六）Android8.0 根Activity启动过程（前篇）](https://liuwangshu.cn/framework/component/6-activity-start-1.html)
+
+[Android深入四大组件（七）Android8.0 根Activity启动过程（后篇）](https://liuwangshu.cn/framework/component/7-activity-start-2.html)
+{% endhint %}
+
