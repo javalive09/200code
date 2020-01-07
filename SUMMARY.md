@@ -23,4 +23,5 @@
 * [Ubunut16.04下载/编译/调试Android源码](ubunut16.04-xia-zai-bian-yi-tiao-shi-android-yuan-ma.md)
 * [在线工具](zaixiangongju.md)
 * [访问网页过程](fang-wen-wang-ye-guo-cheng.md)
+* [Activity启动过程](activity-qi-dong-guo-cheng.md)
 
