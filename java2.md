@@ -1,3 +1,7 @@
+---
+description: 中级
+---
+
 # Java2
 
 ## 多线程

@@ -1,3 +1,7 @@
+---
+description: 初级
+---
+
 # Java1
 
 ## 基本类型
