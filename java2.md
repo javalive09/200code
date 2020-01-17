@@ -32,7 +32,7 @@ description: 中级
 
 ### 运行流程
 
-![](.gitbook/assets/threadlogic.jpeg)
+![](.gitbook/assets/thread_lifecycle.jpg)
 
 ### 控制
 
