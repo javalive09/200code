@@ -18,6 +18,18 @@ description: 中级
 
 ![](.gitbook/assets/threadlife.jpg)
 
+#### 状态初始：新创建了一个线程对象，并没有调用start\(\)方法之前
+
+#### 可运行状态：调用了start\(\) 等待cpu调度
+
+#### 运行状态：获取cpu时间片，run\(\)执行
+
+#### 阻塞状态：暂时让出cpu时间片
+
+* 等待阻塞：o.wait\(\)  线程进入等待队列
+* 同步阻塞：锁对象被占用 线程进入锁池
+* 其他阻塞：sleep\(\) 、 join\(\)、I/O请求 
+
 ### 运行流程
 
 ![](.gitbook/assets/threadlogic.jpeg)
