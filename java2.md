@@ -173,7 +173,7 @@ public class DaemonTest {
 
 将多线程公共变量，变成线程私有变量 如: Looper 中prepare方法 new了一个looper，并将Looper变成了线程本地变量 set\(\) get\(\) ![](https://github.com/javalive09/200code/tree/e08cc7634ce55631ac1aa7987cb97c1b41fa5cc9/images/threadlocal.png)
 
-![](.gitbook/assets/threadlocal.png)
+![](.gitbook/assets/threadlocal.jpg)
 
 ### 多线程完成触发事件如何设计
 
