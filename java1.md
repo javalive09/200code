@@ -1,5 +1,5 @@
 ---
-description: 初级
+description: 基本类型、面向对象、异常处理
 ---
 
 # Java1
