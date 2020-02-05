@@ -1,5 +1,5 @@
 ---
-description: 中级
+description: 多线程、IO流、容器、内部类、泛型
 ---
 
 # Java2
