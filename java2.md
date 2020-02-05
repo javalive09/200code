@@ -175,6 +175,49 @@ public class DaemonTest {
 
 ![](.gitbook/assets/threadlocal.png)
 
+### 线程池
+
+#### 作用
+
+通过复用线程控制线程数量，来节省内存开销，和提高运行速度。
+
+#### 参数含义
+
+```text
+public ThreadPoolExecutor(int corePoolSize,  
+                              int maximumPoolSize,  
+                              long keepAliveTime,  
+                              TimeUnit unit,  
+                              BlockingQueue<Runnable> workQueue,  
+                              ThreadFactory threadFactory,  
+                              RejectedExecutionHandler handler)
+```
+
+corePoolSize：核心线程数量。
+
+ maximumPoolSize：最大线程数。
+
+ keepAliveTime：闲置线程存活时间。
+
+ unit：keepAliveTime的单位。 
+
+workQueue：阻塞队列。 
+
+threadFactory：线程工厂。
+
+ handler：任务超过最大线程数后的策略。 
+
+在ThreadPoolExecutor 里面定义了 4 种 handler 策略，分别是 
+
+1. AbortPolicy： 拒绝所提交的任务，并抛出RejectedExecutionException异常
+2. CallerRunsPolicy： 重试添加当前的任务，自动重复调用execute\(\) 方法，直到成功
+3. DiscardPolicy： 拒绝任务直接无声抛弃，没有异常信息
+4.  DiscardOldestPolicy： 抛弃队列里面等待最久的一个线程，然后把拒绝任务加到队列；
+
+
+
+
+
 ## IO流
 
 缓冲流速度快的原因： 不用每次都频繁的和硬件设备（扇区）进行读写。和硬件设备读写最影响速度
