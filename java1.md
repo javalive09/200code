@@ -253,7 +253,7 @@ a >> n   相当于 a/2n
 
 **switch（变量）**
 
-变量类型为：byte，short，int，char，enum
+变量类型为：byte，short，int，char，enum，string
 
 ### 关键字
 

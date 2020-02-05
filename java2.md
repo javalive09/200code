@@ -77,7 +77,7 @@ AtomicInteger incrementAndGet\(\) decrementAndGet\(\)
 
 LongAdder DoubleAdder Android N之后支持java 8
 
-### 守护进程
+### 守护线程
 
 Java将线程分为User线程和Daemon线程两种 1\) 所谓守护线程就是运行在程序后台的线程，程序的主线程Main（比方java程序一开始启动时创建的那个线程）不会是守护线程。
 

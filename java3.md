@@ -1,5 +1,5 @@
 ---
-description: JVM虚拟机、反射、动态代理
+description: 高级
 ---
 
 # Java3
