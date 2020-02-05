@@ -175,6 +175,29 @@ public class DaemonTest {
 
 ![](.gitbook/assets/threadlocal.png)
 
+### 多线程完成触发事件如何设计
+
+#### 使用计数法：变量计数、容器计数
+
+```text
+public void startScan(ArrayList<String> paths) {  
+    try {  
+        for (String path : paths) {  
+            scanDir(path);//多线程执行  
+        }  
+        while (mTaskCounter.get() > 0) {  
+            Thread.sleep(100);  
+        }  
+
+        //do finish action  
+    } catch (Exception ex) {  
+        ex.printStackTrace();  
+    }  
+}
+```
+
+#### [多线程 扫描 文件 demo](https://github.com/javalive09/ScanSdCardDemo/tree/master/app/src/main/java/peter/util/scandemo)
+
 ### 线程池
 
 #### 作用
