@@ -166,7 +166,9 @@ public void cancel() {
 01-16 15:56:16.714: I/peter(13244): ACT2-onDestroy
 ```
 
-为什么会出现这种2个activity交叉调用的逻辑呢？ 为什么不全部回调完当前的activity的函数。再回调要显示的activity函数。这样的逻辑不是更简单明了么。
+为什么会出现这种2个activity交叉调用的逻辑呢？ 为什么不全部回调完当前的activity的函数。再回调要显示的activity函数。这样的逻辑不是更简单明了么？
+
+原因就是：动画。  act1 -&gt; act2 时 act1 先onPause （注：此时act1仍然是可见的）然后依次执行act2 onCreate onStart onResume 并做切换动画，动画执行完成后act1彻底不可见，此时调用act1 onStop。
 
 #### 验证
 
