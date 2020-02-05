@@ -193,26 +193,20 @@ public ThreadPoolExecutor(int corePoolSize,
                               RejectedExecutionHandler handler)
 ```
 
-corePoolSize：核心线程数量。
+* corePoolSize：核心线程数量。
+* maximumPoolSize：最大线程数。
+* keepAliveTime：闲置线程存活时间。
+* unit：keepAliveTime的单位。
+* workQueue：阻塞队列。
+* threadFactory：线程工厂。
+* handler：任务超过最大线程数后的策略。
 
- maximumPoolSize：最大线程数。
+#### ThreadPoolExecutor 里面定义的 4 种 handler 策略
 
- keepAliveTime：闲置线程存活时间。
-
- unit：keepAliveTime的单位。 
-
-workQueue：阻塞队列。 
-
-threadFactory：线程工厂。
-
- handler：任务超过最大线程数后的策略。 
-
-在ThreadPoolExecutor 里面定义了 4 种 handler 策略，分别是 
-
-1. AbortPolicy： 拒绝所提交的任务，并抛出RejectedExecutionException异常
-2. CallerRunsPolicy： 重试添加当前的任务，自动重复调用execute\(\) 方法，直到成功
-3. DiscardPolicy： 拒绝任务直接无声抛弃，没有异常信息
-4.  DiscardOldestPolicy： 抛弃队列里面等待最久的一个线程，然后把拒绝任务加到队列；
+1. AbortPolicy： 拒绝所提交的任务，并抛出RejectedExecutionException异常；
+2. CallerRunsPolicy： 重试添加当前的任务，自动重复调用execute\(\) 方法，直到成功；
+3. DiscardPolicy： 拒绝任务直接无声抛弃，没有异常信息；
+4. DiscardOldestPolicy： 抛弃队列里面等待最久的一个线程，然后把拒绝任务加到队列；
 
 #### 线程池执行逻辑  ThreadPoolExecutor.java  -  execute\(\)
 
@@ -262,9 +256,30 @@ public void execute(Runnable command) {
 
 ```
 
+![](.gitbook/assets/threadpool.jpg)
 
+1. 如果当前运行的线程少于 corePoolSize，则会创建新的线程来执行新的任务；
+2. 如果运行的线程个数等于或者大于 corePoolSize，则会将提交的任务存放到阻塞队列 workQueue 中；
+3. 如果当前 workQueue 队列已满的话，则会创建新的线程来执行任务；
+4. 如果线程个数已经超过了 maximumPoolSize，则会使用饱和策略 RejectedExecutionHandler 来进行处理。
 
+{% hint style="info" %}
+corePool不是固定的哪几个线程，核心线程是动态变化的
+{% endhint %}
 
+#### 关闭线程池
+
+shutdown\(\)；不会立即终止线程池，而是要等所有任务缓存队列中的任务都执行完后才终止，但再也不会接受新的任务
+
+shutdownNow\(\)；立即终止线程池，并尝试打断正在执行的任务，并且清空任务缓存队列，返回尚未执行的任务
+
+#### 线程池容量的动态调整
+
+setCorePoolSize\(\); 设置核心池大小 
+
+setMaximumPoolSize\(\); 设置线程池最大能创建的线程数目大小
+
+#### [合理配置线程池参数](https://juejin.im/post/5aeec0106fb9a07ab379574f#heading-4)
 
 ## IO流
 
