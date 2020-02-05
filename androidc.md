@@ -1317,10 +1317,6 @@ public class SettingsContentProvider extends ContentProvider {
 
 应用A 访问 应用B（提供contentprovider） 应用A（调用者）如果在主线程调用则主线程阻塞 应用B（被调用者）会单独开辟一个线程1执行call方法 如果B线程1阻塞状态 会新开一个线程2执行call 同时线程1sleep 最后会多出1个线程 也就是说阻塞次数越多 线程数就越多 线程名字为：12345678910abcdef 超过16个阻塞线程应用B会黑屏，应用A如果在主线程调用call会ANR
 
-## 从网络获取数据注意：
-
-从接口获取的数据 不要自己过滤后显示（比如是空就不刷新） 这样很容易会引起逻辑错误。不要截断数据流，让数据流走完整个流程。
-
 ## AsyncTask
 
 1. sdk &lt; 22（5.1） AsyncTask 的Handler使用的new Handler（），如果在非主线程中创建，则有可能不是mainlooper。 sdk &gt; 16\(4.1\) 在APP主线程ActivityThread的main函数里面，直接调用了AscynTask.init函数确保这个类是在主线程初始化的, 所以sk &lt; 16 必须在main线程中创建 AsyncTask。
