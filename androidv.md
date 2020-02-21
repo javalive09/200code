@@ -1242,9 +1242,29 @@ pw.showAtLocation(this, Gravity.NO_GRAVITY, 0, statusBarHeight);
 
 [官方文档](https://developer.android.google.cn/guide/practices/screens_support.html?hl=zh-cn) ![](/images/fitres.jpeg)
 
-### 一套代码适配不同屏幕设备。
+### 一套代码适配不同屏幕设备（一系列的横屏设备）
 
-原理：通过修改density保证任意分辨率设备按密度比率进行像素缩放，纵向可滚动。 接口：提供的接口保证可以缩放activity内的显示效果，并且能还原缩放。
+原理：首先适配一个 b density的标准设备   然后其他设备通过修改density保证任意分辨率设备按密度比率进行像素缩放，纵向可滚动。 接口：提供的接口保证可以缩放activity内的显示效果，并且能还原缩放。
+
+{% hint style="info" %}
+DisplayMetrics类中的几个关键概念：
+
+* densityDpi  ：真实的像素密度 （120、160 、320、480）
+* density ：像素密度比率 currentDensityDpi/160（0.75、1.0、2.0、3.0）
+* scaledDensity ：字体像素密度比率（和density值相同）
+{% endhint %}
+
+```text
+控件宽度为 = a DP
+
+像素按比例缩放：
+screen1width / screen2width = (screen1density*a) / (screen2density*a)
+
+screen2density = screen2width / screen1width * screen1density;
+
+screen2densityDpi = (int)(160*screen2density)
+
+```
 
 ```text
 public class DensityUtil {
