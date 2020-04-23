@@ -6,6 +6,8 @@
 cat file.log | grep "ActivityManager" //过滤查看包含ActivityManager tag的log
 
 cat file.log | grep "ActivityManager\|NEMO_WD" //过滤查看包含ActivityManager或NEMO_WD tag的log
+
+cat file.log | grep " ANR in" -A 10 -B 10 > ~/anr.txt //过滤Anr前10行+后10行并写入anr.txt文件
 ```
 
 ## linux文件
@@ -51,12 +53,14 @@ du -h
 以当前目录为根目录查找名字为DownloadManager.Java的文件所在位置
 
 ```text
+find <path> -name <fileName>
 find . -name "DownloadManager.java"
 ```
 
 忽略大小写
 
 ```text
+find <path> -iname <regExp fileName>
 find . -iname "DownloadManager.java"
 ```
 
@@ -65,6 +69,7 @@ find . -iname "DownloadManager.java"
 查找某目录下所有包含DownloadManager字符的文件 参数含义： r:recurisive 递归 n:显示line number
 
 ```text
+grep -rn <regExp string> <path>
 grep -rn DownloadManager /Users/peter/Downloads/Android4.4源码
 ```
 
