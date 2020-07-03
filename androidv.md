@@ -1546,3 +1546,65 @@ for(StackTraceElement element : stackTraceElements) {
 2. 当正在控制的view 被remove 掉后
 3. 当正在控制的view 所在的activity 被finish后
 
+## 适配实践
+
+### 模拟设备屏幕
+
+```text
+adb shell wm density 160 // 修改屏幕密度
+adb shell wm size 1280x720 // 修改屏幕分辨率
+```
+
+### 模拟设备屏幕实践
+
+9 inch（1280dp x 720dp）
+
+```text
+adb shell wm density 160
+adb shell wm size 1280x720
+```
+
+11 inch（1536dp x 864dp）
+
+```text
+adb shell wm density 160
+adb shell wm size 1536x864
+```
+
+13 inch（1920dp x 1080dp）
+
+```text
+adb shell wm density 160
+adb shell wm size 1920x1080
+```
+
+### UI适配设计方式
+
+ui按照屏幕的物理尺寸进行适配设计 使用dp方式: 
+
+宽度 w &gt; 1536dp 一种布局设计
+
+宽度 w &lt;= 1536dp 一种布局设计
+
+宽度w &lt;= 1280dp 一种布局设计
+
+宽度w    &lt;   960dp 一种布局设计
+
+### 适配应对方法\(使用一套layout布局解决多屏幕适配\)
+
+使用android原生资源限定符  规则
+
+使用宽度限定符来适配
+
+values-w960dp-h720dp   适配  1280dpx720dp
+
+values-w1281dp-h480dp  适配 1536dpx576dp
+
+values-w1281dp-h720dp  适配  1536dpx864dp
+
+values-w1537dp-h720dp   适配  1920dpx720dp  1920dpx1080dp
+
+使用value dimens.xml 配置 -1px 代表match\_parent   -2px代表wrap\_content
+
+
+
