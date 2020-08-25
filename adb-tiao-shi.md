@@ -317,6 +317,10 @@ adb shell settings get system screen_off_timeout // 获取屏幕休眠时间
 adb shell settings put system screen_off_timeout 600000 // 更改休眠时间，10分钟
 
 adb shell settings get global auto_time // 获取日期时间选项中通过网络获取时间的状态，1为允许、0为不允许
+
+adb shell settings get global ntp_server // 获取当前NTP服务器url
+
+adb shell settings put global ntp_server ntp.aliyun.com // 修改NTP服务器url
 ```
 
 ### 查询端口所在进程
