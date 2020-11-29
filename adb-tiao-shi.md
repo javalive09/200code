@@ -317,6 +317,10 @@ adb shell settings get system screen_off_timeout // 获取屏幕休眠时间
 adb shell settings put system screen_off_timeout 600000 // 更改休眠时间，10分钟
 
 adb shell settings get global auto_time // 获取日期时间选项中通过网络获取时间的状态，1为允许、0为不允许
+
+adb shell settings get global ntp_server // 获取当前NTP服务器url
+
+adb shell settings put global ntp_server ntp.aliyun.com // 修改NTP服务器url
 ```
 
 ### 查询端口所在进程
@@ -459,7 +463,7 @@ am broadcast -a broadcast.demo --exclude-stopped-packages
 
 ## dumpsys
 
-[官放文档](https://developer.android.com/studio/command-line/dumpsys) [参考文章](http://gityuan.com/2016/05/14/dumpsys-command/)
+### [官放文档](https://developer.android.com/studio/command-line/dumpsys) [参考文章](http://gityuan.com/2016/05/14/dumpsys-command/)
 
 ```text
 adb shell dumpsys -l //列出所支持的dump
@@ -482,6 +486,48 @@ adb shell dumpsys gfxinfo com.baidu.launcher // 查询gpu每帧处理时间
 
 adb shell dumpsys meminfo | grep "duershowsettings"  // 查询pid
 cat proc/<pid>/oom_adj // 查看adj
+```
+
+### Android 显示错位问题如何快速定位
+
+首先排除应用window错位，查看window的 visible rect 查看是否有错位及遮挡问题
+
+```text
+adb shell dumpsys window windows | grep -E 'Window\ \#|    content\='
+```
+
+```text
+ Window #0 Window{3ea2a2e u0 HVAC Passenger Temp}:
+        content=[1776,162][1888,720] visible=[1776,162][1888,720]
+  Window #1 Window{746973 u0 HVAC Driver Temp}:
+        content=[32,162][144,720] visible=[32,162][144,720]
+  Window #2 Window{3d00bc4 u0 HVAC Passenger Temp collapsed}:
+        content=[1776,720][1888,720] visible=[1776,720][1888,720]
+  Window #3 Window{a743871 u0 HVAC Driver Temp collapsed}:
+        content=[32,720][144,720] visible=[32,720][144,720]
+  Window #4 Window{7c45b8a u0 HVAC Container}:
+        content=[0,0][1920,720] visible=[0,0][1920,720]
+  Window #5 Window{ba24a01 u0 com.wt.launcher3}:
+        content=[-1917,0][23,720] visible=[-1917,0][23,720]
+  Window #6 Window{d7a4722 u0 StatusBar}:
+        content=[0,0][1920,80] visible=[0,0][1920,80]
+  Window #7 Window{b74f937 u0 AssistPreviewPanel}:
+        content=[0,720][1920,720] visible=[0,720][1920,720]
+  Window #8 Window{cbad522 u0 com.wt.multimedia.platform3/com.wt.multimedia.platform3.video.view.VideoActivity}:
+        content=[40,100][632,620] visible=[40,100][632,620]
+  Window #9 Window{9ccf7dd u0 com.wt.hub/com.wt.hubimpl.SETMiniAct}:
+        content=[1288,284][1880,436] visible=[1288,284][1880,436]
+  Window #10 Window{6157bd8 u0 com.wt.hub/com.wt.hubimpl.FREMiniAct}:
+        content=[1288,100][1880,252] visible=[1288,100][1880,252]
+  Window #11 Window{77b814 u0 com.tencent.wecarnavi/com.tencent.wecarnavi.BriefActivity}:
+        content=[664,100][1256,620] visible=[664,100][1256,620]
+  Window #12 Window{930ae7 u0 com.wt.launcher3/com.wt.launcher3.MainActivity}:
+        content=[0,0][1920,720] visible=[0,0][1920,720]
+  Window #13 Window{27282b u0 com.tencent.wecarnavi/com.tencent.wecarnavi.MainActivity}:
+        content=[0,0][1920,720] visible=[0,0][1920,720]
+  Window #14 Window{c402d03 u0 com.android.systemui.ImageWallpaper}:
+        content=[0,0][1920,720] visible=[0,0][1920,720]
+
 ```
 
 ## content
