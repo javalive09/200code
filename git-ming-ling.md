@@ -525,3 +525,19 @@ gitk \[...\] \[\] \[--\] \[...\] //命令格式
 
 gitk //显示当前分支 gitk --all //显示当前目录下 全部分支 --all 为 option gitk ./ //显示当前目录下 当前分支
 
+## 跨仓库cherry-pick
+
+```text
+//添加reomote仓库
+git remote add WTOS02_android9.0_qc6155 gerritserver:/WTOS02_android9.0_qc6155/wutong
+
+//拉取代码
+git fetch WTOS02_android9.0_qc6155
+
+//cherry-pick
+git cherry-pick 7a252c2bce84d37a7d26308adb9f45875263ed5b
+
+//清理remote仓库
+git remote remove WTOS02_android9.0_qc6155
+```
+
