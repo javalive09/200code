@@ -25,4 +25,5 @@
 * [访问网页过程](fang-wen-wang-ye-guo-cheng.md)
 * [Activity启动过程](activity-qi-dong-guo-cheng.md)
 * [Framework](framework.md)
+* [使用VsCode调试Android Framework C/C++源代码](shi-yong-vscode-tiao-shi-android-framework-cc++-yuan-dai-ma.md)
 
