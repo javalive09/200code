@@ -26,4 +26,5 @@
 * [Activity启动过程](activity-qi-dong-guo-cheng.md)
 * [Framework](framework.md)
 * [使用VsCode调试Android Framework C/C++源代码](shi-yong-vscode-tiao-shi-android-framework-cc++-yuan-dai-ma.md)
+* [Ubunut20.04下载/编译/调试Android源码](ubunut20.04-xia-zai-bian-yi-tiao-shi-android-yuan-ma.md)
 
