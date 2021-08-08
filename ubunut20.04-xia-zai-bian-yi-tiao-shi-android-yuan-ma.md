@@ -75,7 +75,14 @@ libtinfo5 libncurses5
 source build/envsetup.sh // 用于运行shell脚本命令，功能等价于”.”，因此该命令也等价于. build/envsetup.sh
 lunch // 指定此次编译的目标设备以及编译类型
 make update-api //更新系统接口
-make -j4
+make  -j4 2>&1 | tee build.log
+```
+
+如果出现out of memery编译错误，需要执行如下操作
+
+```text
+export _JAVA_OPTIONS="-Xmx8g"
+make  -j4 2>&1 | tee build.log
 ```
 
 ## 调试
