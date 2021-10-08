@@ -27,4 +27,7 @@
 * [Framework-调试技巧](framework.md)
 * [使用VsCode调试Android Framework C/C++源代码](shi-yong-vscode-tiao-shi-android-framework-cc++-yuan-dai-ma.md)
 * [Ubunut20.04下载/编译/调试Android源码](ubunut20.04-xia-zai-bian-yi-tiao-shi-android-yuan-ma.md)
+* [Framework-AMS](framework-ams.md)
+* [Framework-WMS](framework-wms.md)
+* [Framework-PMS](framework-pms.md)
 
